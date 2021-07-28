@@ -1014,7 +1014,7 @@ class NodeRtmpSession {
     this.sendRtmpSampleAccess();
   }
 
-  onConnect(invokeMessage) {
+async onConnect(invokeMessage) {
     invokeMessage.cmdObj.app = invokeMessage.cmdObj.app.replace('/', ''); //fix jwplayer
     context.nodeEvent.emit('preConnect', this.id, invokeMessage.cmdObj);
     if (!this.isStarting) {

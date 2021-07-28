@@ -1071,7 +1071,7 @@ async onConnect(invokeMessage) {
     this.respondCreateStream(invokeMessage.transId);
   }
 
-  onPublish(invokeMessage) {
+async onPublish(invokeMessage) {
     if (typeof invokeMessage.streamName !== 'string') {
       return;
     }
@@ -1148,7 +1148,7 @@ async onConnect(invokeMessage) {
     };
   }
 
-  onPlay(invokeMessage) {
+async onPlay(invokeMessage) {
     if (typeof invokeMessage.streamName !== 'string') {
       return;
     }
@@ -1201,7 +1201,7 @@ async onConnect(invokeMessage) {
     };
   }
 
-  onStartPlay() {
+async  onStartPlay() {
     let publisherId = context.publishers.get(this.playStreamPath);
     let publisher = context.sessions.get(publisherId);
     let players = publisher.players;

@@ -176,6 +176,7 @@ class NodeRtmpSession {
     this.numPlayCache = 0;
     this.bitrateCache = {};
     context.sessions.set(this.id, this);
+    console.log('#####HOLAAAAAA2', socket)
   }
 
   run() {

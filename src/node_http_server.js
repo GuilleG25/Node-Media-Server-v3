@@ -48,12 +48,6 @@ class NodeHttpServer {
       req.nmsConnectionType = 'http';
       this.onConnect(req, res);
     });
-
-    app.get('*.m3u8', (req, res, next) => {
-      req.nmsConnectionType = 'hls';
-      this.onConnectGeneral(req, res);
-    });
-
     let adminEntry = path.join(__dirname + '/public/admin/index.html');
     if (Fs.existsSync(adminEntry)) {
       app.get('/admin/*', (req, res) => {
@@ -72,6 +66,10 @@ class NodeHttpServer {
 
     app.use(Express.static(path.join(__dirname + '/public')));
     app.use(Express.static(this.mediaroot));
+    app.get('*.m3u8', (req, res, next) => {
+      req.nmsConnectionType = 'hls';
+      this.onConnectGeneral(req, res);
+    });
     if (config.http.webroot) {
       app.use(Express.static(config.http.webroot));
     }

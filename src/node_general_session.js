@@ -102,6 +102,7 @@ class NodeGeneralSession {
         return;
       }
     }
+    return;
 
     // if (!context.publishers.has(this.playStreamPath)) {
     //   Logger.log(`[${this.TAG} play] Stream not found. id=${this.id} streamPath=${this.playStreamPath} `);

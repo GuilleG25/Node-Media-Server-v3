@@ -49,7 +49,8 @@ class NodeHttpServer {
     });
 
     app.get('*.m3u8', (req, res, next) => {
-      console.log('ENTRO!!!', req, res, next)
+      req.nmsConnectionType = 'hls';
+      this.onConnectGeneral(req, res);
     });
 
     let adminEntry = path.join(__dirname + '/public/admin/index.html');
@@ -177,6 +178,10 @@ class NodeHttpServer {
 
   onConnect(req, res) {
     let session = new NodeFlvSession(this.config, req, res);
+    session.run();
+  }
+  onConnectGeneral(req, res) {
+    let session = new NodeGeneralSession(this.config, req, res);
     session.run();
 
   }

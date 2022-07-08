@@ -34,15 +34,17 @@ function verifyAuth(signStr, streamId, secretKey) {
   if (signStr === undefined) {
     return false;
   }
+  
   let now = Date.now() / 1000 | 0;
   let exp = parseInt(signStr.split('-')[0]);
   let shv = signStr.split('-')[1];
   let str = streamId + '-' + exp + '-' + secretKey;
+  let md5 = Crypto.createHash('md5');
+  let ohv = md5.update(str).digest('hex');
+  console('####VERIFYYYY',shv, signStr, streamId, secretKey, exp, '#SERVERRRR', now, Date.now(), ohv)
   if (exp < now) {
     return false;
   }
-  let md5 = Crypto.createHash('md5');
-  let ohv = md5.update(str).digest('hex');
   return shv === ohv;
 }
 

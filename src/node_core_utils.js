@@ -39,7 +39,6 @@ function verifyAuth(signStr, streamId, secretKey) {
   let exp = parseInt(signStr.split('-')[0]);
   let shv = signStr.split('-')[1];
   let str = streamId + '-' + exp + '-' + secretKey;
-  console.log(now, new Date(), Date.now(), shv)
   if (exp < now) {
     return false;
   }

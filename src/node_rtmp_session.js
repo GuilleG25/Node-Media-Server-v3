@@ -1172,6 +1172,7 @@ async onPlay(invokeMessage) {
       },
       data: this.playArgs
     });
+    console.log('##### HOLAAAA', prePlay)
     if (prePlay) {
       if (this.config.auth && this.config.auth.play && !this.isLocal) {
         let results = NodeCoreUtils.verifyAuth(this.playArgs.sign, this.playStreamPath, this.config.auth.secret);

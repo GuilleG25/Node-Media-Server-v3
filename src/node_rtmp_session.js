@@ -1174,8 +1174,8 @@ async onPlay(invokeMessage) {
     });
     
     if (prePlay) {
-      console.log('##### HOLAAAA',this.isLocal, this.ip)
-      if (this.config.auth && this.config.auth.play && !this.isLocal) {
+      // console.log('##### HOLAAAA',this.isLocal, this.ip)
+      if (this.config.auth && this.config.auth.play) {
         let results = NodeCoreUtils.verifyAuth(this.playArgs.sign, this.playStreamPath, this.config.auth.secret);
         if (!results) {
           Logger.log(`[rtmp play] Unauthorized. id=${this.id} streamPath=${this.playStreamPath}  streamId=${this.playStreamId} sign=${this.playArgs.sign}`);

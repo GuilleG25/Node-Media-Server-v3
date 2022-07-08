@@ -14,6 +14,7 @@ const Express = require('express');
 const bodyParser = require('body-parser');
 const basicAuth = require('basic-auth-connect');
 const NodeFlvSession = require('./node_flv_session');
+const NodeGeneralSession = require('./node_general_session');
 const HTTP_PORT = 80;
 const HTTPS_PORT = 443;
 const HTTP_MEDIAROOT = './media';

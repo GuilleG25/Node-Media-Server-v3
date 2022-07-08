@@ -39,12 +39,11 @@ function verifyAuth(signStr, streamId, secretKey) {
   let exp = parseInt(signStr.split('-')[0]);
   let shv = signStr.split('-')[1];
   let str = streamId + '-' + exp + '-' + secretKey;
-  let md5 = Crypto.createHash('md5');
-  let ohv = md5.update(str).digest('hex');
-  console.log('####VERIFYYYY',shv, signStr, streamId, secretKey, exp, '#SERVERRRR', now, Date.now(), ohv)
   if (exp < now) {
     return false;
   }
+  let md5 = Crypto.createHash('md5');
+  let ohv = md5.update(str).digest('hex');
   return shv === ohv;
 }
 

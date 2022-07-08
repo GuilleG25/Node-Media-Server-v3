@@ -176,7 +176,6 @@ class NodeRtmpSession {
     this.numPlayCache = 0;
     this.bitrateCache = {};
     context.sessions.set(this.id, this);
-    console.log('#####HOLAAAAAA2', socket)
   }
 
   run() {
@@ -1173,9 +1172,7 @@ async onPlay(invokeMessage) {
       },
       data: this.playArgs
     });
-    
     if (prePlay) {
-      console.log('##### HOLAAAA', this.config.auth, this.config.auth.play, this.isLocal, this.ip)
       if (this.config.auth && this.config.auth.play && !this.isLocal) {
         let results = NodeCoreUtils.verifyAuth(this.playArgs.sign, this.playStreamPath, this.config.auth.secret);
         if (!results) {

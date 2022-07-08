@@ -99,6 +99,7 @@ class NodeGeneralSession {
         Logger.log(`[${this.TAG} play] Unauthorized. id=${this.id} streamPath=${this.playStreamPath} sign=${this.playArgs.sign}`);
         this.res.statusCode = 403;
         this.res.end();
+        return;
       }
     }
     this.res.sendFile(`${this.config.http.mediaroot}${this.playStreamPath}.m3u8`)

@@ -41,7 +41,7 @@ function verifyAuth(signStr, streamId, secretKey) {
   let str = streamId + '-' + exp + '-' + secretKey;
   let md5 = Crypto.createHash('md5');
   let ohv = md5.update(str).digest('hex');
-  console('####VERIFYYYY',shv, signStr, streamId, secretKey, exp, '#SERVERRRR', now, Date.now(), ohv)
+  console.log('####VERIFYYYY',shv, signStr, streamId, secretKey, exp, '#SERVERRRR', now, Date.now(), ohv)
   if (exp < now) {
     return false;
   }

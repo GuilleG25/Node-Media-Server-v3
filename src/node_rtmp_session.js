@@ -1174,7 +1174,7 @@ async onPlay(invokeMessage) {
     });
     
     if (prePlay) {
-      console.log('##### HOLAAAA'this.isLocal, this.ip)
+      console.log('##### HOLAAAA', this.config.auth, this.config.auth.play, this.isLocal, this.ip)
       if (this.config.auth && this.config.auth.play && !this.isLocal) {
         let results = NodeCoreUtils.verifyAuth(this.playArgs.sign, this.playStreamPath, this.config.auth.secret);
         if (!results) {

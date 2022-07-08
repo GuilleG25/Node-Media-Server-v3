@@ -48,6 +48,10 @@ class NodeHttpServer {
       this.onConnect(req, res);
     });
 
+    app.get('*.m3u8', (req, res, next) => {
+      console.log('ENTRO!!!', req, res, next)
+    });
+
     let adminEntry = path.join(__dirname + '/public/admin/index.html');
     if (Fs.existsSync(adminEntry)) {
       app.get('/admin/*', (req, res) => {
